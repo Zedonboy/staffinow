@@ -16,8 +16,8 @@ export default function Page(props : {page : IPage, cities : IPage[] }) {
     <Head>
         <title>{props?.page?.pageTitle}</title>
         <meta name="description" content={props?.page?.description}/>
-        {props?.page?.meta?.map(v => (
-            <meta name={v?.name} content={v?.content}/>
+        {props?.page?.meta?.map((v, i) => (
+            <meta key={i} name={v?.name} content={v?.content}/>
         ))}
     </Head>
     <div className="text-base font-light text-gray-700 md:px-12 p-1">
@@ -59,11 +59,7 @@ export default function Page(props : {page : IPage, cities : IPage[] }) {
             </div>
           ))}
         </nav>
-        {/* <div className="grid grid-cols-5">
-          {props?.cities?.map(v => (
-            <a className="hover:text-purple-600" href={`${data.locale}/city/${v?.city}`}>{v?.city}</a>
-          ))}
-        </div> */}
+        
         <p className="mt-8 text-center text-base text-gray-400">&copy; 2020 Staffinow, Inc. All rights reserved.</p>
       </div>
     </footer>
